@@ -1,10 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valentine Surprise 💖</title>
-    <script src="./node_modules/vue/dist/vue.global.js"></script> 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
 
     <style>
       @font-face {
@@ -19,767 +36,836 @@
         font-weight: normal;
         font-style: normal;
       }
-        body {
-            font-family: 'SpaceGrotesk', Arial, sans-serif;
-            background-image: url('/valetines-with-annon/sea.jpg'); 
-            background-size: cover;  
-            background-position: center;  
-            background-attachment: fixed;  
-            background-repeat: no-repeat;  
-            color: #0077b6;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+      body {
+        font-family: 'SpaceGrotesk', Arial, sans-serif;
+        background-image: url('/valetines-with-annon/sea.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: #0077b6;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s;
+      }
+      button {
+        background: #0077b6;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        margin: 10px;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
+      .pov {
+        font-style: italic;
+      }
+      .nope-btn {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .header-chat {
+        background-color: #101d25;
+        color: white;
+        height: 50px;
+        padding: 13px;
+      }
+      .chat-container {
+        width: 100%;
+        max-width: 375px;
+        height: auto;
+        margin: 0 auto;
+        padding: 8px 12px;
+      }
+      .whatsapp-chat {
+        background-color: transparent;
+        position: relative;
+        padding: 10px;
+      }
+      .whatsapp-chat::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/valetines-with-annon/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
+        z-index: 0;
+      }
+      .whatsapp-chat > .chat-bubble {
+        position: relative;
+        z-index: 1;
+      }
+      .chat-bubble {
+        background: #054640;
+        color: #e1e1e1;
+        padding: 10px 15px;
+        border-radius: 20px;
+        margin: 10px 0;
+        text-align: left;
+        max-width: 70%;
+        margin-left: auto;
+        animation: fadeIn 0.5s;
+      }
+      .chat-bubble.partner {
+        border-top-right-radius: 0;
+      }
+      .chat-bubble.me {
+        background: #262d31;
+        color: #e1e1e1;
+        margin-left: 0;
+        margin-right: auto;
+        border-top-left-radius: 0;
+      }
+      .chat-bubble.naration {
+        width: auto;
+        background: #66666696;
+        color: rgba(255, 255, 255, 0.842);
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2px;
+        text-wrap: none;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: all 0.5s;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        button {
-            background: #0077b6;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 10px;
+      }
+      .card {
+        animation: slideUp 1s;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(100px);
+          opacity: 0;
         }
-        button:hover {
-            transform: scale(1.1);
+        to {
+          transform: translateY(0);
+          opacity: 1;
         }
-        .pov {
-          font-style: italic;
-        }
-        .nope-btn {
-          position: relative;
-          transition: all 0.3s ease;
-        } 
-        .header-chat{
-          background-color: #101D25;
-          color: white;
-          height: 50px;
-          padding: 13px;
-        }
-        .chat-container{
-          width: 100%;
-          max-width: 375px;  
-          height: auto;
-          margin: 0 auto;
-          padding: 8px 12px;
-        }
-        .whatsapp-chat {
-          background-color: transparent;
-          position: relative;
-          padding: 10px;
-        }
-        .whatsapp-chat::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('/valetines-with-annon/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 1; 
-            z-index: 0;
-        }
-        .whatsapp-chat > .chat-bubble {
-            position: relative;
-            z-index: 1;
-        }
-        .chat-bubble {
-            background: #054640; 
-            color: #e1e1e1; 
-            padding: 10px 15px;
-            border-radius: 20px;
-            margin: 10px 0;
-            text-align: left;
-            max-width: 70%;
-            margin-left: auto;
-            animation: fadeIn 0.5s;
-        }
-        .chat-bubble.partner{
-            border-top-right-radius: 0;
-        }
-        .chat-bubble.me {
-            background: #262d31;
-            color: #e1e1e1;
-            margin-left: 0;
-            margin-right: auto;
-            border-top-left-radius: 0;
-        }
-        .chat-bubble.naration{
-          width: auto;
-            background: #66666696;
-            color: rgba(255, 255, 255, 0.842);
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 2px;
-            text-wrap: none;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .card {
-            animation: slideUp 1s;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .letter-container {
-            background: white;
-            border: 2px solid #ff69b4;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            animation: fadeIn 1s;
-            text-align: left;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .letter-header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #d63384;
-        }
-        .letter-body {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        .letter-footer {
-            font-size: 14px;
-            font-style: italic;
-            text-align: right;
-            color: #ff69b4;
-        }
-        .letter-icon {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+      }
+      .letter-container {
+        background: white;
+        border: 2px solid #ff69b4;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s;
+        text-align: left;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .letter-header {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #d63384;
+      }
+      .letter-body {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+      .letter-footer {
+        font-size: 14px;
+        font-style: italic;
+        text-align: right;
+        color: #ff69b4;
+      }
+      .letter-icon {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
     </style>
-  <link rel="stylesheet" crossorigin href="/valetines-with-annon/assets/index-C5DKbrSK.css">
-</head>
-<body>
-    <div id="app" >
+    <link rel="stylesheet" crossorigin href="/valetines-with-annon/assets/index-DjYlNvQm.css">
+  </head>
+  <body>
+    <div id="app">
       <!-- INTRO  -->
-<div v-if="step === 0"   class="flower-intro" :class="{ 'not-loaded': !isLoaded }">
-  <div class="night"></div>
+      <div v-if="step === 0" class="flower-intro" :class="{ 'not-loaded': !isLoaded }">
+        <div class="night"></div>
 
-  <!-- Flower -->
-<div class="flowers">
-    <div class="flower flower--1">
-      <div class="flower__leafs flower__leafs--1">
-        <div class="flower__leaf flower__leaf--1"></div>
-        <div class="flower__leaf flower__leaf--2"></div>
-        <div class="flower__leaf flower__leaf--3"></div>
-        <div class="flower__leaf flower__leaf--4"></div>
-        <div class="flower__white-circle"></div>
+        <!-- Flower -->
+        <div class="flowers">
+          <div class="flower flower--1">
+            <div class="flower__leafs flower__leafs--1">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
 
-        <div class="flower__light flower__light--1"></div>
-        <div class="flower__light flower__light--2"></div>
-        <div class="flower__light flower__light--3"></div>
-        <div class="flower__light flower__light--4"></div>
-        <div class="flower__light flower__light--5"></div>
-        <div class="flower__light flower__light--6"></div>
-        <div class="flower__light flower__light--7"></div>
-        <div class="flower__light flower__light--8"></div>
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+              <div class="flower__line__leaf flower__line__leaf--5"></div>
+              <div class="flower__line__leaf flower__line__leaf--6"></div>
+            </div>
+          </div>
 
-      </div>
-      <div class="flower__line">
-        <div class="flower__line__leaf flower__line__leaf--1"></div>
-        <div class="flower__line__leaf flower__line__leaf--2"></div>
-        <div class="flower__line__leaf flower__line__leaf--3"></div>
-        <div class="flower__line__leaf flower__line__leaf--4"></div>
-        <div class="flower__line__leaf flower__line__leaf--5"></div>
-        <div class="flower__line__leaf flower__line__leaf--6"></div>
-      </div>
-    </div>
+          <div class="flower flower--2">
+            <div class="flower__leafs flower__leafs--2">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
 
-    <div class="flower flower--2">
-      <div class="flower__leafs flower__leafs--2">
-        <div class="flower__leaf flower__leaf--1"></div>
-        <div class="flower__leaf flower__leaf--2"></div>
-        <div class="flower__leaf flower__leaf--3"></div>
-        <div class="flower__leaf flower__leaf--4"></div>
-        <div class="flower__white-circle"></div>
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+          </div>
 
-        <div class="flower__light flower__light--1"></div>
-        <div class="flower__light flower__light--2"></div>
-        <div class="flower__light flower__light--3"></div>
-        <div class="flower__light flower__light--4"></div>
-        <div class="flower__light flower__light--5"></div>
-        <div class="flower__light flower__light--6"></div>
-        <div class="flower__light flower__light--7"></div>
-        <div class="flower__light flower__light--8"></div>
+          <div class="flower flower--3">
+            <div class="flower__leafs flower__leafs--3">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
 
-      </div>
-      <div class="flower__line">
-        <div class="flower__line__leaf flower__line__leaf--1"></div>
-        <div class="flower__line__leaf flower__line__leaf--2"></div>
-        <div class="flower__line__leaf flower__line__leaf--3"></div>
-        <div class="flower__line__leaf flower__line__leaf--4"></div>
-      </div>
-    </div>
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+          </div>
 
-    <div class="flower flower--3">
-      <div class="flower__leafs flower__leafs--3">
-        <div class="flower__leaf flower__leaf--1"></div>
-        <div class="flower__leaf flower__leaf--2"></div>
-        <div class="flower__leaf flower__leaf--3"></div>
-        <div class="flower__leaf flower__leaf--4"></div>
-        <div class="flower__white-circle"></div>
+          <div class="grow-ans" style="--d: 1.2s">
+            <div class="flower__g-long">
+              <div class="flower__g-long__top"></div>
+              <div class="flower__g-long__bottom"></div>
+            </div>
+          </div>
 
-        <div class="flower__light flower__light--1"></div>
-        <div class="flower__light flower__light--2"></div>
-        <div class="flower__light flower__light--3"></div>
-        <div class="flower__light flower__light--4"></div>
-        <div class="flower__light flower__light--5"></div>
-        <div class="flower__light flower__light--6"></div>
-        <div class="flower__light flower__light--7"></div>
-        <div class="flower__light flower__light--8"></div>
+          <div class="growing-grass">
+            <div class="flower__grass flower__grass--1">
+              <div class="flower__grass--top"></div>
+              <div class="flower__grass--bottom"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+              <div class="flower__grass__overlay"></div>
+            </div>
+          </div>
 
-      </div>
-      <div class="flower__line">
-        <div class="flower__line__leaf flower__line__leaf--1"></div>
-        <div class="flower__line__leaf flower__line__leaf--2"></div>
-        <div class="flower__line__leaf flower__line__leaf--3"></div>
-        <div class="flower__line__leaf flower__line__leaf--4"></div>
-      </div>
-    </div>
+          <div class="growing-grass">
+            <div class="flower__grass flower__grass--2">
+              <div class="flower__grass--top"></div>
+              <div class="flower__grass--bottom"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+              <div class="flower__grass__overlay"></div>
+            </div>
+          </div>
 
-    <div class="grow-ans" style="--d:1.2s">
-      <div class="flower__g-long">
-        <div class="flower__g-long__top"></div>
-        <div class="flower__g-long__bottom"></div>
-      </div>
-    </div>
+          <div class="grow-ans" style="--d: 2.4s">
+            <div class="flower__g-right flower__g-right--1">
+              <div class="leaf"></div>
+            </div>
+          </div>
 
-    <div class="growing-grass">
-      <div class="flower__grass flower__grass--1">
-        <div class="flower__grass--top"></div>
-        <div class="flower__grass--bottom"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-        <div class="flower__grass__overlay"></div>
-      </div>
-    </div>
+          <div class="grow-ans" style="--d: 2.8s">
+            <div class="flower__g-right flower__g-right--2">
+              <div class="leaf"></div>
+            </div>
+          </div>
 
-    <div class="growing-grass">
-      <div class="flower__grass flower__grass--2">
-        <div class="flower__grass--top"></div>
-        <div class="flower__grass--bottom"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-        <div class="flower__grass__overlay"></div>
-      </div>
-    </div>
+          <div class="grow-ans" style="--d: 2.8s">
+            <div class="flower__g-front">
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__line"></div>
+            </div>
+          </div>
 
-    <div class="grow-ans" style="--d:2.4s">
-      <div class="flower__g-right flower__g-right--1">
-        <div class="leaf"></div>
-      </div>
-    </div>
+          <div class="grow-ans" style="--d: 3.2s">
+            <div class="flower__g-fr">
+              <div class="leaf"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+            </div>
+          </div>
 
-    <div class="grow-ans" style="--d:2.8s">
-      <div class="flower__g-right flower__g-right--2">
-        <div class="leaf"></div>
-      </div>
-    </div>
+          <div class="long-g long-g--0">
+            <div class="grow-ans" style="--d: 3s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 2.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
 
-    <div class="grow-ans" style="--d:2.8s">
-      <div class="flower__g-front">
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
-          <div class="flower__g-front__leaf"></div>
+          <div class="long-g long-g--1">
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.8s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--2">
+            <div class="grow-ans" style="--d: 4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--3">
+            <div class="grow-ans" style="--d: 4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--4">
+            <div class="grow-ans" style="--d: 4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--5">
+            <div class="grow-ans" style="--d: 4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--6">
+            <div class="grow-ans" style="--d: 4.2s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.4s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.6s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 4.8s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+
+          <div class="long-g long-g--7">
+            <div class="grow-ans" style="--d: 3s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.5s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d: 3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
         </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
-          <div class="flower__g-front__leaf"></div>
-        </div>
-        <div class="flower__g-front__line"></div>
-      </div>
-    </div>
 
-    <div class="grow-ans" style="--d:3.2s">
-      <div class="flower__g-fr">
-        <div class="leaf"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
-        <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+        <h1 class="title">
+          <span>{{ animatedTitle }}</span>
+        </h1>
       </div>
-    </div>
 
-    <div class="long-g long-g--0">
-      <div class="grow-ans" style="--d:3s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:2.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.4s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--1">
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.8s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:4s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--2">
-      <div class="grow-ans" style="--d:4s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.4s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--3">
-      <div class="grow-ans" style="--d:4s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:3s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--4">
-      <div class="grow-ans" style="--d:4s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:3s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--5">
-      <div class="grow-ans" style="--d:4s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:3s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--6">
-      <div class="grow-ans" style="--d:4.2s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.4s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.6s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:4.8s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-
-    <div class="long-g long-g--7">
-      <div class="grow-ans" style="--d:3s">
-        <div class="leaf leaf--0"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.2s">
-        <div class="leaf leaf--1"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.5s">
-        <div class="leaf leaf--2"></div>
-      </div>
-      <div class="grow-ans" style="--d:3.6s">
-        <div class="leaf leaf--3"></div>
-      </div>
-    </div>
-  </div>
-
-    <h1 class="title">
-    <span>{{ animatedTitle }}</span>
-  </h1>
-</div>
-
-<div v-if="step !== 0" class="container">
+      <div v-if="step !== 0" class="container">
         <!-- Halaman 1 -->
         <div v-if="step === 1">
-            <h1 style="font-family: 'DancingScript', Arial; font-weight: bold;">Happy Valentine’s Day, sayang  <i class="bi bi-balloon-heart"></i> </h1>
-            <p>Mau terima hadiah dari Aa?</p>  
-            <button @click="nextStep">Mau, dong.</button>
-            <button
-              v-if="nopeCount < maxNope"
-              class="nope-btn"
-              :style="nopeStyle"
-              @mouseenter="moveNope"
-              @click="moveNope"
-            >
-              Enggak ah, males.
-            </button>
-            <p v-if="nopeCount >= maxNope" style="margin-top: 15px;">
-              😏 Nggak ada pilihan lain.
-            </p>
+          <h1 style="font-family: 'DancingScript', Arial; font-weight: bold">
+            Happy Valentine’s Day, sayang <i class="bi bi-balloon-heart"></i>
+          </h1>
+          <p>Mau terima hadiah dari Aa?</p>
+          <button @click="nextStep">Mau, dong.</button>
+          <button
+            v-if="nopeCount < maxNope"
+            class="nope-btn"
+            :style="nopeStyle"
+            @mouseenter="moveNope"
+            @click="moveNope"
+          >
+            Enggak ah, males.
+          </button>
+          <p v-if="nopeCount >= maxNope" style="margin-top: 15px">😏 Nggak ada pilihan lain.</p>
         </div>
 
         <!-- Halaman 2 -->
         <div v-if="step === 2" class="chat-room">
-            <h2>Our first conversations?</h2>
-            <div class="pov" style="color: #666;">*) From Marteen's POV.</div>
-            <div class="chat-container">
-              <div class="header-chat d-flex justify-content-between">
-                <div class="left">
-                 Rheannon Halden
-                </div>
-                <div class="right">
-                  <p style="font-style: italic; color: #666;">(lupain per icon-an)</p>
-                </div>
-              </div>
-              <div class="whatsapp-chat">
-                <div v-for="(chat, index) in chatsVisible" :key="index" :class="[
-                  'chat-bubble', 
-                  chat.sender === 'me' ? 'me' : (chat.sender === 'partner' ? 'partner' : 'naration')
-                ]">
-                    {{ chat.message }}
-                </div>
+          <h2>Our first conversations?</h2>
+          <div class="pov" style="color: #666">*) From Marteen's POV.</div>
+          <div class="chat-container">
+            <div class="header-chat d-flex justify-content-between">
+              <div class="left">Rheannon Halden</div>
+              <div class="right">
+                <p style="font-style: italic; color: #666">(lupain per icon-an)</p>
               </div>
             </div>
-            <button v-if="chatsVisible.length < chats.length" @click="skipChats">Skip Animasi <i class="bi bi-skip-forward-fill mx-3"></i></button>
+            <div class="whatsapp-chat">
+              <div
+                v-for="(chat, index) in chatsVisible"
+                :key="index"
+                :class="[
+                  'chat-bubble', 
+                  chat.sender === 'me' ? 'me' : (chat.sender === 'partner' ? 'partner' : 'naration')
+                ]"
+              >
+                {{ chat.message }}
+              </div>
+            </div>
+          </div>
+          <button v-if="chatsVisible.length < chats.length" @click="skipChats">
+            Skip Animasi <i class="bi bi-skip-forward-fill mx-3"></i>
+          </button>
 
-            <button @click="nextStep" v-if="chatsVisible.length === chats.length">Selanjutnya apa?</button>
+          <button @click="nextStep" v-if="chatsVisible.length === chats.length">
+            Selanjutnya apa?
+          </button>
         </div>
 
         <!-- Halaman 3 -->
         <div v-if="step === 3">
-            <h2>Beberapa moment yang tidak dilupakan oleh si pikun ini</h2>
-            <div v-for="(photo, index) in photosVisible" :key="index" class="card mb-3 w-100 d-flex justify-content-center" style="max-width: 540px;">
-                  <div class="card-body">
-                      <h5 class="card-title">{{ photo.title }}</h5>
-                      <p class="card-text">{{ photo.caption }}</p>
-                      <p class="card-text"><small class="text-body-secondary">Memori spesial ❤️</small></p>
-                  </div>
+          <h2>Beberapa moment yang tidak dilupakan oleh si pikun ini</h2>
+          <div
+            v-for="(photo, index) in photosVisible"
+            :key="index"
+            class="card mb-3 w-100 d-flex justify-content-center"
+            style="max-width: 540px"
+          >
+            <div class="card-body">
+              <h5 class="card-title">{{ photo.title }}</h5>
+              <p class="card-text">{{ photo.caption }}</p>
+              <p class="card-text"><small class="text-body-secondary">Memori spesial ❤️</small></p>
             </div>
-            <button @click="nextStep" v-if="photosVisible.length === photos.length">Moment distaym</button>
+          </div>
+          <button @click="nextStep" v-if="photosVisible.length === photos.length">
+            Moment distaym
+          </button>
         </div>
 
         <!-- Halaman 4 -->
         <div v-if="step === 4" class="chat-room">
-            <h2>This time?</h2>
-            <div class="pov" style="color: #666;">*) From Marteen's POV.</div>
-            <div class="chat-container">
-              <div class="header-chat d-flex justify-content-between">
-                <div class="left">
-                 Rheannon Halden
-                </div>
-                <div class="right">
-                  <p style="font-style: italic; color: #666;">(lupain per icon-an)</p>
-                </div>
-              </div>
-              <div class="whatsapp-chat">
-                <div v-for="(chat, index) in chatsVisible2" :key="index" :class="[
-                  'chat-bubble', 
-                  chat.sender === 'me' ? 'me' : (chat.sender === 'partner' ? 'partner' : 'naration')
-                ]">
-                    {{ chat.message }}
-                </div>
+          <h2>This time?</h2>
+          <div class="pov" style="color: #666">*) From Marteen's POV.</div>
+          <div class="chat-container">
+            <div class="header-chat d-flex justify-content-between">
+              <div class="left">Rheannon Halden</div>
+              <div class="right">
+                <p style="font-style: italic; color: #666">(lupain per icon-an)</p>
               </div>
             </div>
-            <button v-if="chatsVisible2.length < chats2.length" @click="skipChats">Skip Animasi <i class="bi bi-skip-forward-fill mx-3"></i></button>
+            <div class="whatsapp-chat">
+              <div
+                v-for="(chat, index) in chatsVisible2"
+                :key="index"
+                :class="[
+                  'chat-bubble', 
+                  chat.sender === 'me' ? 'me' : (chat.sender === 'partner' ? 'partner' : 'naration')
+                ]"
+              >
+                {{ chat.message }}
+              </div>
+            </div>
+          </div>
+          <button v-if="chatsVisible2.length < chats2.length" @click="skipChats">
+            Skip Animasi <i class="bi bi-skip-forward-fill mx-3"></i>
+          </button>
 
-            <button @click="nextStep" v-if="chatsVisible2.length === chats2.length">Next?</button>
+          <button @click="nextStep" v-if="chatsVisible2.length === chats2.length">Next?</button>
         </div>
 
         <!-- Halaman 4 -->
         <div v-if="step === 5">
-            <h2>Last, but not least 💌</h2>
-            <div class="letter-container">
-                <div class="letter-icon">💌</div>
-                <div class="letter-header">Dear {{ dearName }},</div>
-                <div class="letter-body">{{ currentLetter.body }}</div>
-                <div class="letter-footer">With love, {{ fromName }} ❤️</div>
-            </div>
-            <button @click="prevCard" v-if="cardIndex > 0">⬅️ Prev</button>
-            <button @click="nextCard" v-if="cardIndex < letters.length - 1">Next</button>
-            <button @click="nextStep" v-if="cardIndex === letters.length - 1">The End.</button>
+          <h2>Last, but not least 💌</h2>
+          <div class="letter-container">
+            <div class="letter-icon">💌</div>
+            <div class="letter-header">Dear {{ dearName }},</div>
+            <div class="letter-body">{{ currentLetter.body }}</div>
+            <div class="letter-footer">With love, {{ fromName }} ❤️</div>
+          </div>
+          <button @click="prevCard" v-if="cardIndex > 0">⬅️ Prev</button>
+          <button @click="nextCard" v-if="cardIndex < letters.length - 1">Next</button>
+          <button @click="nextStep" v-if="cardIndex === letters.length - 1">The End.</button>
         </div>
 
         <!-- Halaman Akhir -->
         <div v-if="step > 5">
-            <h1>🦈🐟</h1>
-            <p>Klik untuk ulang dari awal.</p>
-            <button @click="reset">Ulang <i class="bi bi-arrow-clockwise mx-2"></i></button>
+          <h1>🦈🐟</h1>
+          <p>Klik untuk ulang dari awal.</p>
+          <button @click="reset">Ulang <i class="bi bi-arrow-clockwise mx-2"></i></button>
         </div>
-        </div>
+      </div>
     </div>
 
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const { createApp } = Vue;
+      const { createApp } = Vue
 
-        createApp({
-            data() {
-                return {
-                    chatTimeouts: [],
-                    isLoaded: false,
-                    titleText: 'I LOVE U',
-                    animatedTitle: '',
+      createApp({
+        data() {
+          return {
+            chatTimeouts: [],
+            isLoaded: false,
+            titleText: 'I LOVE U',
+            animatedTitle: '',
 
-                    step: 0,
-                    cardIndex: 0,
-                    dearName: 'My fineshyt, Rheannon Halden',  
-                    fromName: 'Orang #1 terkeren sejagat raya',
-                    chats: [
-                        { sender: 'me', message: 'Eps.ㅤ999.ㅤ🏁ㅤ(ㅤRheannon Halden.' },
-                        { sender: 'partner', message: "Salvado. Here's Marteen Reinhardt and ephemeral use Max Verstappen. Up to swappin' your ID's or Getting to know each other more closely? Much obliged, Pals." },
-                        { sender: 'me', message: 'added, Marteen! mauu temenan nggaa?' },
-                        { sender: 'partner', message: 'Sure, Rhe-or what should i call u?' },
-                       
-                        { sender: 'me', message: 'Rhe or Rey, both are finee. kalau ada panggilan lain bolehhh bangett kokk' },
-                        { sender: 'partner', message: 'Mau gua panggil Annon tapi kesannya jadi wanita misterius.' },
-                        { sender: 'partner', message: 'Anonym.' },
-                        { sender: 'naration', message: '* Damn, jokes jelek ini lagi.' }
-                    ],
-                    chats2: [
-                        { sender: 'me', message: 'trus apa yang nggaa males?' },
-                        { sender: 'partner', message: "Mencintaimu" },
-                        { sender: 'me', message: 'pret' },
-                        { sender: 'partner', message: "Nggak percayaan." },
-                        { sender: 'me', message: 'nekstaym aja' },
-                        { sender: 'partner', message: "Walah" },
-                        { sender: 'partner', message: "Oke, cinta cintaannya nekstaym ya rek" },
-                        { sender: 'partner', message: "Kan temen." },
-                        { sender: 'naration', message: '* Marteen pun kecewa berat.' },
-                        { sender: 'me', message: 'nekstaym itu besok harusnya' },
-                        { sender: 'partner', message: " Halah. Ngeles." },
-                        { sender: 'partner', message: "Ferrari nekstaymnya nggak ada hilal, ini juga?" },
-                        { sender: 'naration', message: '* Wes lah, nggak jadi nembak' },
-                        { sender: 'me', message: 'jangan bawa bawa si merah itu, klo aku sama kamu ya distaym!!!' },
-                        { sender: 'partner', message: "Yowes, distaym sama Meneer mah nggak pernah omong kosong." },
-                        { sender: 'partner', message: "So, this time?" },
-                        { sender: 'naration', message: '* Dan akhirnya serangan pun jadi diluncurkan. Happy ending.' },
-                    ],
-                    chatsVisible: [],
-                    chatsVisible2: [],
-                    photos: [
-                        { title: 'Interaksi Pertama', caption: 'Disaat pertama kali kita berinteraksi, gua masih familiar sama nama lu walaupun lu nggak kenal gua saat itu.' },
-                        { title: 'Jilat Ludah Sendiri', caption: 'Well, gua juga masih inget kalau waktu itu gua pernah bilang "Nggak akan cinta-cintaan dulu." dan lu juga setuju. But, endingnya? Hahaha.' },
-                        { title: 'Temporary Swap as Ke(sayangan)lly', caption: 'Ada kalimat lu yang paling gua inget, saat gua tanya mau temporary sampai kapan. "As long as you want, Meneer" damn. Mulai ada celah di dinding pertahanan gua saat itu.' },
-                        { title: 'Annon as Cegil', caption: 'Walaupun gua enggak inget detail, tapi gua masih inget rasanya menghadapi kecegilan lu. Gemes, lucu, dan heran bercampur jadi satu.' },
-                        { title: 'This time?', caption: "Moment distaym? Terlupakan? Mustahil. Let's see gimana cuplikannya." }
-                    ],
-                    photosVisible: [],
-                    letters: [
-                        { body: 'I love every version of you. I love the way you connect, the way you tell your stories, and every little detail that makes you so wonderfully you. I love you, my Valentine ❤️' }
-                    ], 
-                    nopeCount: 0,
-                    maxNope: 5,
-                    nopeStyle: {
-                      transform: 'translate(0px, 0px)'
-                    },
-                };
+            step: 0,
+            cardIndex: 0,
+            dearName: 'My fineshyt, Rheannon Halden',
+            fromName: 'Orang #1 terkeren sejagat raya',
+            chats: [
+              { sender: 'me', message: 'Eps.ㅤ999.ㅤ🏁ㅤ(ㅤRheannon Halden.' },
+              {
+                sender: 'partner',
+                message:
+                  "Salvado. Here's Marteen Reinhardt and ephemeral use Max Verstappen. Up to swappin' your ID's or Getting to know each other more closely? Much obliged, Pals.",
+              },
+              { sender: 'me', message: 'added, Marteen! mauu temenan nggaa?' },
+              { sender: 'partner', message: 'Sure, Rhe-or what should i call u?' },
+
+              {
+                sender: 'me',
+                message:
+                  'Rhe or Rey, both are finee. kalau ada panggilan lain bolehhh bangett kokk',
+              },
+              {
+                sender: 'partner',
+                message: 'Mau gua panggil Annon tapi kesannya jadi wanita misterius.',
+              },
+              { sender: 'partner', message: 'Anonym.' },
+              { sender: 'naration', message: '* Damn, jokes jelek ini lagi.' },
+            ],
+            chats2: [
+              { sender: 'me', message: 'trus apa yang nggaa males?' },
+              { sender: 'partner', message: 'Mencintaimu' },
+              { sender: 'me', message: 'pret' },
+              { sender: 'partner', message: 'Nggak percayaan.' },
+              { sender: 'me', message: 'nekstaym aja' },
+              { sender: 'partner', message: 'Walah' },
+              { sender: 'partner', message: 'Oke, cinta cintaannya nekstaym ya rek' },
+              { sender: 'partner', message: 'Kan temen.' },
+              { sender: 'naration', message: '* Marteen pun kecewa berat.' },
+              { sender: 'me', message: 'nekstaym itu besok harusnya' },
+              { sender: 'partner', message: ' Halah. Ngeles.' },
+              { sender: 'partner', message: 'Ferrari nekstaymnya nggak ada hilal, ini juga?' },
+              { sender: 'naration', message: '* Wes lah, nggak jadi nembak' },
+              {
+                sender: 'me',
+                message: 'jangan bawa bawa si merah itu, klo aku sama kamu ya distaym!!!',
+              },
+              {
+                sender: 'partner',
+                message: 'Yowes, distaym sama Meneer mah nggak pernah omong kosong.',
+              },
+              { sender: 'partner', message: 'So, this time?' },
+              {
+                sender: 'naration',
+                message: '* Dan akhirnya serangan pun jadi diluncurkan. Happy ending.',
+              },
+            ],
+            chatsVisible: [],
+            chatsVisible2: [],
+            photos: [
+              {
+                title: 'Interaksi Pertama',
+                caption:
+                  'Disaat pertama kali kita berinteraksi, gua masih familiar sama nama lu walaupun lu nggak kenal gua saat itu.',
+              },
+              {
+                title: 'Jilat Ludah Sendiri',
+                caption:
+                  'Well, gua juga masih inget kalau waktu itu gua pernah bilang "Nggak akan cinta-cintaan dulu." dan lu juga setuju. But, endingnya? Hahaha.',
+              },
+              {
+                title: 'Temporary Swap as Ke(sayangan)lly',
+                caption:
+                  'Ada kalimat lu yang paling gua inget, saat gua tanya mau temporary sampai kapan. "As long as you want, Meneer" damn. Mulai ada celah di dinding pertahanan gua saat itu.',
+              },
+              {
+                title: 'Annon as Cegil',
+                caption:
+                  'Walaupun gua enggak inget detail, tapi gua masih inget rasanya menghadapi kecegilan lu. Gemes, lucu, dan heran bercampur jadi satu.',
+              },
+              {
+                title: 'This time?',
+                caption: "Moment distaym? Terlupakan? Mustahil. Let's see gimana cuplikannya.",
+              },
+            ],
+            photosVisible: [],
+            letters: [
+              {
+                body: 'I love every version of you. I love the way you connect, the way you tell your stories, and every little detail that makes you so wonderfully you. I love you, my Valentine ❤️',
+              },
+            ],
+            nopeCount: 0,
+            maxNope: 5,
+            nopeStyle: {
+              transform: 'translate(0px, 0px)',
             },
-            computed: {
-                currentLetter() {
-                    return this.letters[this.cardIndex];
-                }
-            },
-            mounted() {
-                  if (this.step === 0) {
-                    this.startIntroSequence();
-                  }
-                this.startChatAnimation();
-            },
-            watch: {
-                step(newStep) {
-                    if (newStep === 3) {
-                        this.photos.forEach((photo, index) => {
-                            setTimeout(() => {
-                                this.photosVisible.push(photo);
-                            }, index * 3000);
-                        });
-                    }
-
-                    if (newStep === 4) {
-                        this.startChatAnimation2(); 
-                    }
-
-                    if (newStep === 0) {
-                      document.body.classList.add('flower-mode');
-                    } else {
-                      document.body.classList.remove('flower-mode');
-                    }
-                },
-            },
-            methods: {
-                nextStep() {
-                    this.step++;
-                },
-                prevCard() {
-                    if (this.cardIndex > 0) this.cardIndex--;
-                },
-                nextCard() {
-                    if (this.cardIndex < this.letters.length - 1) this.cardIndex++;
-                },
-                moveNope() {
-                    if (this.nopeCount >= this.maxNope) return;
-
-                    this.nopeCount++;
-
-                    const x = Math.floor(Math.random() * 200 - 100); 
-                    const y = Math.floor(Math.random() * 150 - 75); 
-
-                    this.nopeStyle = {
-                      transform: `translate(${x}px, ${y}px)`
-                    };
-                },
-                startChatAnimation() {
-                  this.chats.forEach((chat, index) => {
-                      const id = setTimeout(() => {
-                          this.chatsVisible.push(chat);
-                      }, index * 3000);
-                      this.chatTimeouts.push(id);
-                  })
-                },
-                startChatAnimation2() {
-                  this.chats2.forEach((chat, index) => {
-                      const id = setTimeout(() => {
-                          this.chatsVisible2.push(chat);
-                      }, index * 3000);
-                      this.chatTimeouts.push(id);
-                  })
-                },
-                skipChats() {
-                    this.chatTimeouts.forEach(id => clearTimeout(id));
-                    this.chatTimeouts = [];
-
-                    if (this.step === 2) {
-                        this.chatsVisible = [...this.chats];
-                    } else if (this.step === 4) {
-                        this.chatsVisible2 = [...this.chats2];
-                    }
-                },
-                animateTitle() {
-                  let index = 0;
-                  const interval = setInterval(() => {
-                    if (index < this.titleText.length) {
-                      this.animatedTitle += this.titleText[index];
-                      index++;
-                    } else {
-                      clearInterval(interval);
-                    }
-                  }, 300);
-                },
-                startIntroSequence() {
-                  this.isLoaded = true;
-
-                  setTimeout(() => {
-                    this.animateTitle();
-                  }, 3500); 
-                  
-                  setTimeout(() => {
-                    this.step = 1;
-                  }, 9000); 
-                },
-
-
-                reset() {
-                    this.step = 1;
-                    this.cardIndex = 0;
-                    this.chatsVisible = [];
-                    this.chatsVisible2 = [];
-                    this.photosVisible = [];
-                    this.chatTimeouts.forEach(id => clearTimeout(id));
-                    this.chatTimeouts = [];
-                    this.startChatAnimation();
-                    this.startChatAnimation2();
-                }
+          }
+        },
+        computed: {
+          currentLetter() {
+            return this.letters[this.cardIndex]
+          },
+        },
+        mounted() {
+          if (this.step === 0) {
+            this.startIntroSequence()
+          }
+          this.startChatAnimation()
+        },
+        watch: {
+          step(newStep) {
+            if (newStep === 3) {
+              this.photos.forEach((photo, index) => {
+                setTimeout(() => {
+                  this.photosVisible.push(photo)
+                }, index * 3000)
+              })
             }
-        }).mount('#app');
+
+            if (newStep === 4) {
+              this.startChatAnimation2()
+            }
+
+            if (newStep === 0) {
+              document.body.classList.add('flower-mode')
+            } else {
+              document.body.classList.remove('flower-mode')
+            }
+          },
+        },
+        methods: {
+          nextStep() {
+            this.step++
+          },
+          prevCard() {
+            if (this.cardIndex > 0) this.cardIndex--
+          },
+          nextCard() {
+            if (this.cardIndex < this.letters.length - 1) this.cardIndex++
+          },
+          moveNope() {
+            if (this.nopeCount >= this.maxNope) return
+
+            this.nopeCount++
+
+            const x = Math.floor(Math.random() * 200 - 100)
+            const y = Math.floor(Math.random() * 150 - 75)
+
+            this.nopeStyle = {
+              transform: `translate(${x}px, ${y}px)`,
+            }
+          },
+          startChatAnimation() {
+            this.chats.forEach((chat, index) => {
+              const id = setTimeout(() => {
+                this.chatsVisible.push(chat)
+              }, index * 3000)
+              this.chatTimeouts.push(id)
+            })
+          },
+          startChatAnimation2() {
+            this.chats2.forEach((chat, index) => {
+              const id = setTimeout(() => {
+                this.chatsVisible2.push(chat)
+              }, index * 3000)
+              this.chatTimeouts.push(id)
+            })
+          },
+          skipChats() {
+            this.chatTimeouts.forEach((id) => clearTimeout(id))
+            this.chatTimeouts = []
+
+            if (this.step === 2) {
+              this.chatsVisible = [...this.chats]
+            } else if (this.step === 4) {
+              this.chatsVisible2 = [...this.chats2]
+            }
+          },
+          animateTitle() {
+            let index = 0
+            const interval = setInterval(() => {
+              if (index < this.titleText.length) {
+                this.animatedTitle += this.titleText[index]
+                index++
+              } else {
+                clearInterval(interval)
+              }
+            }, 300)
+          },
+          startIntroSequence() {
+            this.isLoaded = true
+
+            setTimeout(() => {
+              this.animateTitle()
+            }, 3500)
+
+            setTimeout(() => {
+              this.step = 1
+            }, 9000)
+          },
+
+          reset() {
+            this.step = 1
+            this.cardIndex = 0
+            this.chatsVisible = []
+            this.chatsVisible2 = []
+            this.photosVisible = []
+            this.chatTimeouts.forEach((id) => clearTimeout(id))
+            this.chatTimeouts = []
+            this.startChatAnimation()
+            this.startChatAnimation2()
+          },
+        },
+      }).mount('#app')
     </script>
-</body>
+  </body>
 </html>
